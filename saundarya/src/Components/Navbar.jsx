@@ -3,21 +3,35 @@ import { Link } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { FiSearch, FiHeart } from "react-icons/fi";
 import { RiContactsLine } from "react-icons/ri";
-import { useState } from "react";
+import React, { useState } from "react";
+import {
+  useDisclosure,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
+import Login from "../Pages/Login";
 
 const Navbar = () => {
   const navData = JSON.parse(localStorage.getItem("user"));
   const cartItems = JSON.parse(localStorage.getItem("shopping-cart"));
-  const [user, setUser] = useState("");
-
+    const [user, setUser] = useState("");
+    
   const handleName = () => {
     //  localStorage.clear();
     localStorage.removeItem("user");
     window.location.reload();
   };
   return (
-      <>
-          <h1>NAVBAR</h1>
+    <>
       <div className="NavbarContainer-1">
         <div className="Navbar-11">
           <div className="Navbar-12">
@@ -28,13 +42,13 @@ const Navbar = () => {
             <input
               className="Navbar-13"
               type="text"
-              placeholder="Search SEPHORA"
+              placeholder="Search SAUNDARYA"
             />
           </div>
           <div className="Navbar-14">
             {/* <div className="Navbar-15">SEPHORA</div> */}
             <Link to={`/`} className="Navbar-15">
-              SEPHORA
+              SAUNDARYA
             </Link>
           </div>
           <div className="Navbar-16">
@@ -51,7 +65,7 @@ const Navbar = () => {
                 </li>
               </Link>
               <li>|</li>
-              <Link to={`/login`}>
+              <Link to={`/login`} >
                 <span id="adjustment1">
                   <li>
                     <RiContactsLine />
@@ -60,7 +74,8 @@ const Navbar = () => {
                     {navData == null ? "Login" : ""}
                   </li>
                 </span>
-              </Link>
+            </Link>
+            
               <div>{navData == null ? "" : navData} </div>
               {/* <div>{navData==null ? "":<button onClick={handleName}>Logout</button>}</div> */}
             </div>

@@ -48,10 +48,15 @@
     /* margin-top: 10px; */
 }
 /* ////////////////////////// */
+#offer_box{
+    line-height: 5px;
+    padding: 0 30px;
+}
+
 .top-center{
     display: flex;
     /* border: 1px solid green; */
-    width: 23%;
+    width: 35%;
     height: 100%;
     
 }

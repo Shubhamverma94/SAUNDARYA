@@ -1,6 +1,6 @@
-/* .NavbarContainer-1{
-  
-} */
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .Navbar-11 {
     display: flex;
     justify-content: space-evenly;
