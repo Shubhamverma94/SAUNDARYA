@@ -1,151 +1,66 @@
-import GoogleLogin from "react-google-login";
-import FacebookLogin from "react-facebook-login";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { Button } from "@material-ui/core";
-import { Link } from "react-router-dom";
+// import {
+//   Flex,
+//   Box,
+//   FormControl,
+//   FormLabel,
+//   Input,
+//   Checkbox,
+//   Stack,
+//   Link,
+//   Button,
+//   Heading,
+//   Text,
+//   useColorModeValue,
+// } from '@chakra-ui/react';
 
-const Login = () => {
-  const [user, setUser] = useState([]);
-  const getdata = async () => {
-    fetch(`https://sephora-clone.herokuapp.com/users`)
-      .then((d) => d.json())
-      .then((data) => {
-        setUser(data);
-        console.log(data);
-      });
-  };
-  useEffect(() => {
-    getdata();
-  }, []);
-
-
-  const handleChange = (e) => {
-
-    localStorage.setItem("user", JSON.stringify(e.target.value));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-
-  };
-
-  const navigate = useNavigate();
-  const responseSuccessGoogle = (response) => {
-    console.log(response.profileObj, response.tokenId);
-    setUser(response.profileObj, response.tokenId);
-    // localStorage.setItem("user", JSON.stringify(response.profileObj));
-    navigate("/");
-  };
-
-  const responseErrorGoogle = (response) => {
-    console.log(response);
-  };
-  const componentClicked = (response) => {
-    console.log(response);
-  };
-
-  const responseFacebook = (response) => {
-    console.log(response.name, response.email, response.picture.data.url);
-    setUser(response.name, response.email, response.picture.data.url);
-    // localStorage.setItem("user", JSON.stringify(response.name));
-    navigate("/");
-  };
-  useEffect(() => {
-    console.log("useState", user);
-  }, [responseSuccessGoogle]);
-
-  return (
-    <>
-      <div
-        style={{
-          border: "2px solid gray",
-          width: "30%",
-          height: "550px",
-          margin: "auto",
-          marginTop: "20px"
-        }}
-      >
-        <h1>Login </h1>
-
-        <form onSubmit={handleSubmit} style={{ display: "inline-block" }}>
-          <br />
-
-          <input
-            type="email"
-            name="email"
-
-            placeholder="Email or Phone Number"
-            style={{ padding: "10px", margin: "10px", width: "260px" }}
-          />
-          <br />
-
-          <input
-            type="text"
-            name="name"
-            onChange={handleChange}
-            style={{ padding: "10px", margin: "10px", width: "260px" }}
-            placeholder="Username"
-          />
-          <br />
-
-          <input
-            placeholder="Enter the password"
-            type="password"
-            name="password"
-
-
-            style={{ padding: "10px", margin: "10px", width: "260px" }}
-          />
-          <br />
-          <br></br>
-          <Link to={`/`}>
-            <Button
-              style={{
-                backgroundColor: "rgb(255,51,153)",
-                border: "none",
-                width: "90%",
-              }}
-              color="primary"
-              variant="contained"
-              value="Submit"
-            >
-              {" "}
-              Continue{" "}
-            </Button>
-          </Link>
-          <br></br>
-          <br></br>
-        </form>
-
-        <br></br>
-        {/* <GoogleLogin
-          clientId="783084545362-nbv5flob7ak19200jqvmr33fb3og95ri.apps.googleusercontent.com"
-          buttonText="Login with Google"
-          onSuccess={responseSuccessGoogle}
-          onFailure={responseErrorGoogle}
-          expectcssClass="google-button"
-          cookiePolicy={"single_host_origin"}
-          style={{ backgroundColor: "rgb(25,118,210)" }}
-        /> */}
-        <br></br>
-        {/* <FacebookLogin
-          appId="397198822046839"
-          autoLoad={false}
-          fields="name,email,picture"
-          onClick={componentClicked}
-          callback={responseFacebook}
-          expectcssClass="facebook-button"
-          icon="fa-facebook"
-          textButton="Login with Facebook"
-          style={{ backgroundColor: "rgb(25,118,210)" }}
-        /> */}
-      </div>
-    </>
-  );
-};
-
-
-export default Login;
+// export default function SimpleCard() {
+//   return (
+//     <Flex
+//       minH={'100vh'}
+//       align={'center'}
+//       justify={'center'}
+//       bg={useColorModeValue('gray.50', 'gray.800')}>
+//       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+//         <Stack align={'center'}>
+//           <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+//           <Text fontSize={'lg'} color={'gray.600'}>
+//             to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+//           </Text>
+//         </Stack>
+//         <Box
+//           rounded={'lg'}
+//           bg={useColorModeValue('white', 'gray.700')}
+//           boxShadow={'lg'}
+//           p={8}>
+//           <Stack spacing={4}>
+//             <FormControl id="email">
+//               <FormLabel>Email address</FormLabel>
+//               <Input type="email" />
+//             </FormControl>
+//             <FormControl id="password">
+//               <FormLabel>Password</FormLabel>
+//               <Input type="password" />
+//             </FormControl>
+//             <Stack spacing={10}>
+//               <Stack
+//                 direction={{ base: 'column', sm: 'row' }}
+//                 align={'start'}
+//                 justify={'space-between'}>
+//                 <Checkbox>Remember me</Checkbox>
+//                 <Link color={'blue.400'}>Forgot password?</Link>
+//               </Stack>
+//               <Button
+//                 bg={'blue.400'}
+//                 color={'white'}
+//                 _hover={{
+//                   bg: 'blue.500',
+//                 }}>
+//                 Sign in
+//               </Button>
+//             </Stack>
+//           </Stack>
+//         </Box>
+//       </Stack>
+//     </Flex>
+//   );
+// }

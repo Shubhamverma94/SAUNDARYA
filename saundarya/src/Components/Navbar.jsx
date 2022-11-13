@@ -46,6 +46,7 @@ const Navbar = () => {
             />
           </div>
           <div className="Navbar-14">
+            <img src="https://drive.google.com/file/d/14x80u4zZFRXly9TwINRec28YWJblV9cO/view?usp=sharing" alt="" />
             <Link to={`/`} className="Navbar-15">
               SAUNDARYA
             </Link>
