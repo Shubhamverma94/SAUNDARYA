@@ -46,7 +46,6 @@ const Navbar = () => {
             />
           </div>
           <div className="Navbar-14">
-            {/* <div className="Navbar-15">SEPHORA</div> */}
             <Link to={`/`} className="Navbar-15">
               SAUNDARYA
             </Link>
@@ -126,7 +125,6 @@ const Navbar = () => {
                     </ul>
                   </div>
                   <div>
-                    {/* <h5>	EYE</h5> */}
                     <ul>
                       <li className="first">
                         <Link to={"/Makeup"}>EYE</Link>
@@ -158,7 +156,6 @@ const Navbar = () => {
                     </ul>
                   </div>
                   <div>
-                    {/* <h5>LIP</h5> */}
                     <ul>
                       <Link to={`/Makeup`}>
                         <li className="first">
@@ -186,7 +183,6 @@ const Navbar = () => {
                     </ul>
                   </div>
                   <div>
-                    {/* <h5>CHEEK</h5> */}
                     <ul>
                       <Link to={`/Makeup`}>
                         <li className="first">
@@ -208,7 +204,27 @@ const Navbar = () => {
                     </ul>
                   </div>
                   <div>
-                    {/* <h5>NAIL MAKEUP</h5> */}
+                    <ul>
+                      <Link to={`/Makeup`}>
+                        <li className="first">
+                          <a href="">MAKEUP ACCESSORIES </a>
+                        </li>
+                        <li>
+                          <a href="">Tweezers & Eyebrow Tools</a>
+                        </li>
+                        <li>
+                          <a href="">Nakeup Removers</a>
+                        </li>
+                        <li>
+                          <a href="">Sponges & Applicators</a>
+                        </li>
+                        <li>
+                          <a href="">Makeup Bags & Travel Cases</a>
+                        </li>
+                      </Link>
+                    </ul>
+                  </div>
+                  <div>
                     <ul>
                       <Link to={`/Makeup`}>
                         <li className="first">
@@ -242,7 +258,6 @@ const Navbar = () => {
               <div className="hover ">
                 <div className="hover--navbar">
                   <div>
-                    {/* <h5>FACE</h5> */}
                     <ul>
                       <Link to={`/Makeup`}>
                         <li className="first">
