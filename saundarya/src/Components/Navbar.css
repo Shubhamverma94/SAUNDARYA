@@ -1,9 +1,10 @@
-/* .NavbarContainer-1{
-  
-} */
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .Navbar-11 {
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     /* border: 3px solid rgb(0, 0, 0); */
 }
 

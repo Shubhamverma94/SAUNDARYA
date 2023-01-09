@@ -3,21 +3,44 @@ import { Link } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { FiSearch, FiHeart } from "react-icons/fi";
 import { RiContactsLine } from "react-icons/ri";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  useDisclosure,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
+import Login from "../Pages/Login";
+import { auth } from "../firebase";
 
 const Navbar = () => {
   const navData = JSON.parse(localStorage.getItem("user"));
   const cartItems = JSON.parse(localStorage.getItem("shopping-cart"));
-  const [user, setUser] = useState("");
+  const [userName, setUserName] = useState("");
 
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserName(user.displayName);
+      } else setUserName("");
+    });
+  }, []);
+    
   const handleName = () => {
     //  localStorage.clear();
     localStorage.removeItem("user");
     window.location.reload();
   };
   return (
-      <>
-          <h1>NAVBAR</h1>
+    <>
       <div className="NavbarContainer-1">
         <div className="Navbar-11">
           <div className="Navbar-12">
@@ -28,11 +51,11 @@ const Navbar = () => {
             <input
               className="Navbar-13"
               type="text"
-              placeholder="Search SEPHORA"
+              placeholder="Search SAUNDARYA"
             />
           </div>
           <div className="Navbar-14">
-            {/* <div className="Navbar-15">SEPHORA</div> */}
+            <img src="https://drive.google.com/file/d/14x80u4zZFRXly9TwINRec28YWJblV9cO/view?usp=sharing" alt="" />
             <Link to={`/`} className="Navbar-15">
               SEPHORA
             </Link>
@@ -51,16 +74,17 @@ const Navbar = () => {
                 </li>
               </Link>
               <li>|</li>
-              <Link to={`/login`}>
+              <Link to={`/login`} >
                 <span id="adjustment1">
                   <li>
-                    <RiContactsLine />
+                  {userName ? `Hi - ${userName}` : <RiContactsLine />} 
                   </li>
                   <li style={{ marginLeft: "5px" }}>
-                    {navData == null ? "Login" : ""}
+                    {userName == "" ? "Login" : ""}
                   </li>
                 </span>
-              </Link>
+            </Link>
+            
               <div>{navData == null ? "" : navData} </div>
               {/* <div>{navData==null ? "":<button onClick={handleName}>Logout</button>}</div> */}
             </div>
@@ -111,7 +135,6 @@ const Navbar = () => {
                     </ul>
                   </div>
                   <div>
-                    {/* <h5>	EYE</h5> */}
                     <ul>
                       <li className="first">
                         <Link to={"/Makeup"}>EYE</Link>
@@ -143,7 +166,6 @@ const Navbar = () => {
                     </ul>
                   </div>
                   <div>
-                    {/* <h5>LIP</h5> */}
                     <ul>
                       <Link to={`/Makeup`}>
                         <li className="first">
@@ -171,7 +193,6 @@ const Navbar = () => {
                     </ul>
                   </div>
                   <div>
-                    {/* <h5>CHEEK</h5> */}
                     <ul>
                       <Link to={`/Makeup`}>
                         <li className="first">
@@ -193,7 +214,27 @@ const Navbar = () => {
                     </ul>
                   </div>
                   <div>
-                    {/* <h5>NAIL MAKEUP</h5> */}
+                    <ul>
+                      <Link to={`/Makeup`}>
+                        <li className="first">
+                          <a href="">MAKEUP ACCESSORIES </a>
+                        </li>
+                        <li>
+                          <a href="">Tweezers & Eyebrow Tools</a>
+                        </li>
+                        <li>
+                          <a href="">Nakeup Removers</a>
+                        </li>
+                        <li>
+                          <a href="">Sponges & Applicators</a>
+                        </li>
+                        <li>
+                          <a href="">Makeup Bags & Travel Cases</a>
+                        </li>
+                      </Link>
+                    </ul>
+                  </div>
+                  <div>
                     <ul>
                       <Link to={`/Makeup`}>
                         <li className="first">
@@ -227,7 +268,6 @@ const Navbar = () => {
               <div className="hover ">
                 <div className="hover--navbar">
                   <div>
-                    {/* <h5>FACE</h5> */}
                     <ul>
                       <Link to={`/Makeup`}>
                         <li className="first">
